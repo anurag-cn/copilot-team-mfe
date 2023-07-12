@@ -1,0 +1,47 @@
+.team-page {
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 20px;
+  }
+  
+  .team-page h1 {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .search-bar {
+    margin-bottom: 20px;
+  }
+  
+  .search-bar input {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+  }
+  
+  .team-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .team-table th,
+  .team-table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .team-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    text-align: left;
+  }
+  
+  .team-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .team-table tr:hover {
+    background-color: #e6f7ff;
+  }
+  

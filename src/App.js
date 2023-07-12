@@ -1,11 +1,26 @@
-import logo from './logo.svg';
 import './App.css';
+import Button from './Button.js'
+import React, { Suspense } from 'react';
+import ErrorBoundary from './ErrorBoundary';
+import TeamPage from './TeamPage';
+const CopilotComponent = React.lazy(() => import("Copilot/CopilotComponent"));
 
 function App() {
+  const teamMembers = [
+    { name: 'John Doe', role: 'Developer', createdDate: '2022-01-01' },
+    { name: 'Jane Smith', role: 'Designer', createdDate: '2022-02-15' },
+    // Add more team members as needed
+  ];
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+        <Button></Button>
+        <ErrorBoundary>
+        <Suspense fallback={<></>}> 
+        <CopilotComponent name="anurag"></CopilotComponent>
+        </Suspense> </ErrorBoundary>
+        <TeamPage teamMembers={teamMembers}></TeamPage>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
