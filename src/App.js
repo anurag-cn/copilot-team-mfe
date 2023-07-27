@@ -4,6 +4,7 @@ import React, { Suspense } from 'react';
 import ErrorBoundary from './ErrorBoundary';
 import TeamPage from './TeamPage';
 const CopilotComponent = React.lazy(() => import("Copilot/CopilotComponent"));
+const TeamMembersContextProvider = React.lazy(() => import("Copilot/CopilotComponent"));
 
 function App() {
   const teamMembers = [
@@ -13,6 +14,7 @@ function App() {
   ];
 
   return (
+    <TeamMembersContextProvider>
     <div className="App">
       <header className="App-header">
         <Button></Button>
@@ -34,6 +36,7 @@ function App() {
         </a>
       </header>
     </div>
+    </TeamMembersContextProvider>
   );
 }
 
