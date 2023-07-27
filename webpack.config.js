@@ -4,16 +4,16 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const path = require("path");
 const { dependencies } = require("./package.json");
 var HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
-  template: './public/index.html',
-  filename: 'index.html',
-  inject: 'body',
-  excludeChunks: ['Copilot']
+  template: "./public/index.html",
+  filename: "index.html",
+  inject: "body",
+  excludeChunks: ["Copilot"],
 });
 module.exports = {
   entry: "./src/index",
   mode: "development",
   devServer: {
-    host: 'localhost',
+    host: "localhost",
     port: 5000,
   },
   module: {
@@ -42,25 +42,25 @@ module.exports = {
       name: "Remote",
       filename: "remoteEntry.js",
       remotes: {
-        Copilot: "Copilot@http://copilot-local.condenast.io:1234/copilotEntry.js",
+        Copilot:
+          "Copilot@http://copilot-local.condenast.io:1234/copilotEntry.js",
       },
       exposes: {
         "./Button": "./src/Button",
-        "./TeamPage": "./src/TeamPage"
+        "./TeamPage": "./src/TeamPage",
       },
       shared: {
-        "react": {
+        react: {
           singleton: true,
           requiredVersion: "17.0.2",
-          version: '17.0.2',
+          version: "17.0.2",
         },
         "react-dom": {
           singleton: true,
           requiredVersion: "17.0.2",
-          version: '17.0.2',
+          version: "17.0.2",
         },
       },
-
     }),
   ],
   resolve: {

@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import './TeamPage.css'; // Import CSS file for styling (create this file and define styles)
+import { useTeamMembersList } from "Copilot/store";
 
-const TeamPage = ({ teamMembers }) => {
+const TeamPage = () => {
+  const [members, setMembers] = useTeamMembersList();
+
   const [searchTerm, setSearchTerm] = useState('');
 
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
 
-  const filteredMembers = teamMembers.filter((member) =>
+  console.log(members.length, "... from")
+  const filteredMembers = members.filter((member) =>
     member.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
@@ -22,6 +26,7 @@ const TeamPage = ({ teamMembers }) => {
           value={searchTerm}
           onChange={handleSearch}
         />
+        <button onClick={() => setMembers([])}>{"Clear it"}</button>
       </div>
       <table className="team-table">
         <thead>
